@@ -7,13 +7,11 @@
     <div class="card-wrap">
         <div class="card-header align-items-center d-flex">
             <a class="no-text-decoration" href="/users/{{ $post->user->id }}">
-            @if ($user->image)
-            <p>
-                <img class="round-img" src="data:image/png;base64,{{ $user->image }}" />
-            </p>
-            @else
-                <img class="round-img" src="{{ asset('/images/blank_profile.png') }}"/>
-            @endif
+                @if ($post->user->profile_photo)
+                    <img class="post-profile-icon round-img" src="{{ asset('storage/user_images/' . $post->user->profile_photo) }}"/>
+                @else
+                    <img class="post-profile-icon round-img" src="{{ asset('/images/blank_profile.png') }}"/>
+                @endif
             </a>
             <a class="black-color no-text-decoration" title="{{ $post->user->name }}" href="/users/{{ $post->user->id }}">
                 <strong>{{ $post->user->name }}</strong>
@@ -28,7 +26,7 @@
         
         <a href="/users/{{ $post->user->id }}">
             <!--<img src="/storage/post_images/{{ $post->id }}.jpg" class="card-img-top" />-->
-            <img src="data:image/png;base64,{{ $post->id }}.jpg" class="card-img-top" />
+            <img src="data:image/png;base64,{{ $post->image }}" class="card-img-top" />
         </a>
         <div class="card-body">
             <div class="row parts">
