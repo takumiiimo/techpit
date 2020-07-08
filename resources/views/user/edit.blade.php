@@ -13,7 +13,6 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="user_profile_photo">プロフィール写真</label><br>
-                            <!--@if ($user->profile_photo)-->
                             @if ($user->image)
                                 <p>
                                     <img src=data:image/png;base64,{{ $user->image }}" alt="avatar" />
