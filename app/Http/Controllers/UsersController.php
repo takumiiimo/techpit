@@ -42,13 +42,19 @@ class UsersController extends Controller
         
         $user = User::find($request->id);
         $user->name = $request->user_name;
-        if ($request->user_profile_photo !=null) {
-            // storeAsメソッド 写真をサーバに保存　user_id+.jpg
-            $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
-            $user->profile_photo = $user->id . '.jpg';
-        }
+        // if ($request->user_profile_photo !=null) {
+        //     // storeAsメソッド 写真をサーバに保存　user_id+.jpg
+        //     $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
+        //     $user->profile_photo = $user->id . '.jpg';
+        // }
         
         $user->password = bcrypt($request->user_password);
+        
+        if ($request->user_profile_photo !=null){
+            $user->image = base64_encode(file_get_contents($request->user_profile_photo));
+        }
+        
+        
         // saveメソッド　$userのデータベースを保存
         $user->save();
         
