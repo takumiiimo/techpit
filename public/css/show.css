@@ -28,3 +28,11 @@
 .setting:hover {
   cursor: pointer;
 }
+.chat_logo {
+  margin: 15px 0 0 15px;
+  height: 24px;
+  width: 24px;
+  background-size: 22px !important;
+  background-repeat: no-repeat;
+  background-image: url("/images/parts10.png");
+}

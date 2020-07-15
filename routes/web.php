@@ -48,5 +48,7 @@ Route::post('/posts/{comment_id}/comments','CommentsController@store');
 //  コメント取消処理
 Route::get('/comments/{comment_id}', 'CommentsController@destroy');
 
+Route::post('/chat/show', 'ChatController@show')->name('chat.show');
+
 // ユーザー詳細画面
 Route::get('/users/{user_id}', 'UsersController@show');

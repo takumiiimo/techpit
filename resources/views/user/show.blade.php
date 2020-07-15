@@ -18,7 +18,16 @@
         <div class="col-md-8">
             <div class="row">
                 <h1>{{ $user->name }}</h1>
+                @foreach( $users as $user )
+                <div class="chatPerson">
+                    <form method="POST" action="{{ route('chat.show') }}"></form>
+                    @csrf
+                    <input name="user_id" type="hidden" value="{{$user->id}}">
+                    <div class="chat_logo"><a src="{{route('chat.show')}}"></a></div>
+                </div>
+                @endforeach
                 @if ($user->id == Auth::user()->id)
+                
                     <a class="btn btn-outline-dark common-btn edit-profile-btn" href="/users/edit">プロフィールを編集</a>
                     <a class="btn btn-outline-dark common-btn edit-profile-btn" rel="nofollow" data-method="POST" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>

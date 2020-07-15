@@ -31,6 +31,7 @@ class PostsController extends Controller
     
     public function new()
     {
+        
         // post/new.blade.phpを表示
         return view('post/new');
     }
@@ -53,6 +54,7 @@ class PostsController extends Controller
         $post = new Post;
         $post->caption = $request->caption;
         $post->user_id = Auth::user()->id;
+    
         
         $post->image = base64_encode(file_get_contents($request->photo));
         
