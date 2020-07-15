@@ -17,6 +17,7 @@
                                 @if (Auth::user()->image)
                                     <img class="post-profile-icon round-img" src="data:image/png;base64,{{ Auth::user()->image }}"/>
                                     <!--<img class="post-profile-icon round-img" src="{{ asset('storage/user_images/' . Auth::user()->id . '.jpg') }}"/>-->
+                                @endif
                             </div>
                             <div class="col pl-0">
                                 <input class="form-control border-0" placeholder="キャプションを書く" type="text" name="caption" value="{{ old('list_name') }}"/>
